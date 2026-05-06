@@ -508,7 +508,7 @@ const FIXED_PRODUCT_GROUPS = {
   "(3) Chàm_Mèo        :": ["22d07bb6-a2e2-4030-8a61-db9405bdf357"],
   "(4) kim ngân        :": ["17d14347-1a39-4b4f-9809-23617a3c7d91"],
   "(5) trúc bách       :": ["515fac53-1d92-44b6-919c-ab772a07c8fe"],
-  "(6) Ngót Rừng       :": ["17d14347-1a39-4b4f-9809-23617a3c7d91"],
+  "(6) Ngót Rừng       :": ["0689da30-f6bf-4978-8e82-8b2b4672ac62"],
   "(7) Dòi thân tím    :": ["2e6f905c-7226-4d19-a649-243ccab0e2c1","055385b2-2205-4a5d-a48c-c4cf6e6c35a6"],
 };
 
