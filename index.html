@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tổng đơn theo ngày</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="container">
+    <div class="header-content">
+      <h1>🏴‍☠️ Tổng đơn theo ngày by Giang đẹp trai ⚓</h1>
+      <div class="subtitle">Khám phá kho báu dữ liệu đơn hàng trên đại dương số</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <form id="config-form">
+        <div class="grid">
+          <div class="field">
+            <label for="date">Ngày</label>
+            <input id="date" name="date" type="date" required />
+          </div>
+          <div class="field">
+            <label for="apiKey">API Key</label>
+            <input id="apiKey" name="apiKey" type="password" value="367322495ce24e10a8ed4ef938d20935" required />
+          </div>
+          <div class="field">
+            <label for="shopId">Shop ID</label>
+            <input id="shopId" name="shopId" type="text" value="100207460" required />
+          </div>
+          <div class="field">
+            <label for="gsUrl">GAS Web App URL (xuất sang Google Sheets)</label>
+            <div style="display:flex; gap:8px; align-items:center;">
+              <input id="gsUrl" name="gsUrl" type="url" value="https://script.google.com/macros/s/AKfycbxDEW4pfTwHwUbHTMui8w61-goIfJHT76F-j4X_neFdgq-_GHQMz0XPB79N5Tzru20DNg/exec" style="flex:1;" />
+              <button type="button" id="exportNowBtn" class="secondary" disabled>Xuất</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="group-builder">
+          <h2>🏝️ Nhóm sản phẩm - Kho báu của thuyền trưởng</h2>
+          <div class="group-add">
+            <input id="groupName" type="text" placeholder="Tên nhóm (VD: Cây văn trúc)" />
+            <input id="groupPids" type="text" placeholder="Nhập ID sản phẩm, cách nhau bởi dấu phẩy" />
+            <button type="button" id="addGroupBtn">⚔️ Thêm nhóm</button>
+          </div>
+          <div class="group-list" id="groupList"></div>
+          <div class="group-actions">
+            <button type="button" id="loadSampleBtn" class="secondary">🗺️ Tải mẫu</button>
+            <button type="button" id="exportGroupsBtn" class="secondary">📦 Xuất nhóm</button>
+            <button type="button" id="clearGroupsBtn" class="danger secondary">💥 Xoá tất cả</button>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" id="runBtn">🚀 Bắt đầu cuộc phiêu lưu!</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card" id="status-card">
+      <div class="status-row">
+        <div id="status">Sẵn sàng.</div>
+        <progress id="progress" value="0" max="100" hidden></progress>
+      </div>
+    </section>
+
+    <section class="card" id="stats-card" style="display: none;">
+      <h2>🏆 Thống kê cuộc phiêu lưu</h2>
+      <div class="stats-grid">
+        <div class="stat-item success">
+          <div class="stat-icon">🏴‍☠️</div>
+          <div class="stat-content">
+            <div class="stat-label">Chiến thắng</div>
+            <div class="stat-value" id="success-count">0</div>
+          </div>
+        </div>
+        <div class="stat-item error">
+          <div class="stat-icon">⚡</div>
+          <div class="stat-content">
+            <div class="stat-label">Thất bại</div>
+            <div class="stat-value" id="failed-count">0</div>
+          </div>
+        </div>
+        <div class="stat-item total">
+          <div class="stat-icon">💎</div>
+          <div class="stat-content">
+            <div class="stat-label">Kho báu tổng</div>
+            <div class="stat-value" id="total-count">0</div>
+          </div>
+        </div>
+        <div class="stat-item percentage">
+          <div class="stat-icon">🎯</div>
+          <div class="stat-content">
+            <div class="stat-label">Tỷ lệ thành công</div>
+            <div class="stat-value" id="success-rate">0%</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>🗺️ Kết quả</h2>
+      <div id="results" class="results"></div>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <span>© 2025</span>
+  </footer>
+
+  <script src="app.js"></script>
+  
+</body>
+</html>
+
